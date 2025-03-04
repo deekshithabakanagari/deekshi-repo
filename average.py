@@ -1,11 +1,15 @@
-def average(l):
-    total = 0
-    length = 0
-    for i in l:
-        total+=i
-        length+=1
-    avg = total/length
-    return round(avg,2)
+# This code takes n integers as input
+# Prints the average of these numbers
 
-l=list(map(int,input().split()))
-print(average(l))
+# Taking input from the user
+numbers = input('Enter space seperated numbers: ').split()
+
+# Declaring a variable for sum
+sum = 0
+
+# Calculating the sum
+for i in numbers:
+    sum += int(i)
+
+# Printing the average
+print(f'{(sum / len(numbers)):.2f}')
