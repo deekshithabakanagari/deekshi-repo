@@ -1,38 +1,51 @@
+# This code is to insert a new ListNode at the start of a linked list
+# Creating a ListNode class for creating a linked list
 class ListNode:
-    def __init__(self,data):
+
+    # Defining the init method with instance variables
+    def __init__(self, data) -> None:
         self.data = data
         self.next = None
 
-def printLL(head):
+# Defining a function to print the elements of linked list
+def print_ll(head):
     while head:
-        print(head.data,end="-->")
-        head=head.next
-    print(None)
+        print(head.data, end=' --> ')
+        head = head.next
+    print('None')
 
-def lengthLL(head):
+# Defining a function to count the no. of elements
+def length_ll(head):
     length = 0
-    while(head):
-        length+=1
-        head=head.next
+    while head:
+        length += 1
+        head = head.next
     return length
 
-def insert_start(head,val):
-    new_Node = ListNode(val)
-    new_Node.next = head
-    return new_Node
+# Defining a function to insert a node at the start of a linked list
+def insert_start(head, val):
+    new_node = ListNode(val)
+    new_node.next = head
+    return new_node
 
-head = ListNode(2)
-f = ListNode(5)
-s = ListNode(28)
-t = ListNode(23)
+# Creating a few ListNode objects to create a linked list
+head = ListNode(10)
+second = ListNode(1)
+third = ListNode(8)
+fourth = ListNode(11)
 
-head.next = f
-f.next = s
-s.next = t
+# Connecting these ListNodes to form a linked list
+head.next = second
+second.next = third
+third.next = fourth
 
-printLL(head)
+# Printing the linked list before inserting a new node
+print_ll(head)
+print(f'The length of ll is {length_ll(head)}')
 
-head = insert_start(head,5)
+# Inserting a new node using the function
+head = insert_start(head, 2)
 
-printLL(head)
-
+# Printing the linked list after inserting a new node
+print_ll(head)
+print(f'The length of ll is {length_ll(head)}')
