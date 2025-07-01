@@ -1,0 +1,177 @@
+DSA
+
+Data Structures and Algorithms (DSA) is a fundamental part of Computer Science that teaches you how to think and solve complex problems systematically.
+
+why DSA?
+
+For managing large amounts of data, such as in a social network or a search engine.
+For scheduling tasks, to decide which task a computer should do first.
+For planning routes, like in a GPS system to find the shortest path from A to B.
+For optimizing processes, such as arranging tasks so they can be completed as quickly as possible.
+For solving complex problems: From finding the best way to pack a truck to making a computer 'learn' from data.
+
+
+where applied?
+
+Operating Systems
+Database Systems
+Web Applications
+Machine Learning
+Video Games
+Cryptographic Systems
+Data Analysis
+Search Engines
+
+Types
+
+Primitive Data Structures: are basic data structures provided by programming languages to represent single values, such as integers, floating-point numbers, characters, and booleans.
+
+Abstract Data Structures: are higher-level data structures that are built using primitive data types and provide more complex and specialized operations. Some common examples of abstract data structures include arrays, linked lists, stacks, queues, trees, and graphs.
+
+Algorithm examples:
+
+Finding the fastest route in a GPS navigation system
+Navigating an airplane or a car (cruise control)
+Finding what users search for (search engine)
+Sorting, for example sorting movies by rating
+
+
+
+
+ARRAYS
+
+Array is a linear data structure where all elements are arranged sequentially. It is a collection of elements of same data type stored at contiguous memory locations. 
+
+
+
+
+Bubble Sort
+
+Bubble Sort is an algorithm that sorts an array from the lowest value to the highest value
+
+my_array = [7, 3, 9, 12, 11]
+
+n = len(my_array)
+for i in range(n-1):
+    swapped = False
+    for j in range(n-i-1):
+        if my_array[j] > my_array[j+1]:
+            my_array[j], my_array[j+1] = my_array[j+1], my_array[j]
+            swapped = True
+    if not swapped:
+        break
+
+print("Sorted array:", my_array)
+
+ time complexity :O(n^2) 
+
+
+
+
+
+selection sort
+
+The Selection Sort algorithm finds the lowest value in an array and moves it to the front of the array
+
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+          min_idx = i
+        for j in range(i+1, n):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+    
+    return arr
+
+# Example usage:
+arr = [64, 34, 25, 12, 22, 11, 90]
+sorted_arr = selection_sort(arr)
+print("Sorted array:", sorted_arr)
+
+
+
+
+
+Insertion Sort
+
+The Insertion Sort algorithm uses one part of the array to hold the sorted values, and the other part of the array to hold values that are not sorted yet.
+
+my_array = [64, 34, 25, 12, 22, 11, 90, 5]
+
+n = len(my_array)
+for i in range(1,n):
+    insert_index = i
+    current_value = my_array.pop(i)
+    for j in range(i-1, -1, -1):
+        if my_array[j] > current_value:
+            insert_index = j
+    my_array.insert(insert_index, current_value)
+
+print("Sorted array:", my_array)
+
+Bubble sort, Selection sort and Insertion sort are algorithms with this time complexity == O(n^2)
+
+
+
+
+
+Quicksort 
+As the name suggests, Quicksort is one of the fastest sorting algorithms.
+
+The Quicksort algorithm takes an array of values, chooses one of the values as the 'pivot' element, and moves the other values so that lower values are on the left of the pivot element, and higher values are on the right of it.
+
+def partition(array, low, high):
+    pivot = array[high]
+    i = low - 1
+
+    for j in range(low, high):
+        if array[j] <= pivot:
+            i += 1
+            array[i], array[j] = array[j], array[i]
+
+    array[i+1], array[high] = array[high], array[i+1]
+    return i+1
+
+def quicksort(array, low=0, high=None):
+    if high is None:
+        high = len(array) - 1
+
+    if low < high:
+        pivot_index = partition(array, low, high)
+        quicksort(array, low, pivot_index-1)
+        quicksort(array, pivot_index+1, high)
+
+my_array = [64, 34, 25, 12, 22, 11, 90, 5]
+quicksort(my_array)
+print("Sorted array:", my_array)
+  
+time complexity: O(n log n)
+
+
+
+
+
+merge sort
+
+The Merge Sort algorithm is a divide-and-conquer algorithm that sorts an array by first breaking it down into smaller arrays, and then building the array back together the correct way so that it is sorted.
+
+Divide: The algorithm starts with breaking up the array into smaller and smaller pieces until one such sub-array only consists of one element.
+
+Conquer: The algorithm merges the small pieces of the array back together by putting the lowest values first, resulting in a sorted array.
+
+same as quick sort
+
+
+
+
+linear search 
+Linear Search
+The Linear Search algorithm searches through an array and returns the index of the value it searches for
+Time complexity for Linear Search is O(n)
+
+
+
+Binary Search
+The Binary Search algorithm searches through an array and returns the index of the value it searches for
+Time complexity for Binary Search is O(log2n)
